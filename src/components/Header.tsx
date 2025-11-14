@@ -7,10 +7,11 @@ export function Header() {
       <div className="bg-[#3a5a40] text-white">
         <div className="container mx-auto px-4 py-2 flex justify-between items-center text-sm">
           <div className="flex gap-6">
-            <span>Free Shipping on Orders Above ₹999</span>
+            <span>🌱 Transforming Waste into Beautiful Products | Free Shipping on Orders Above ₹999</span>
           </div>
           <div className="flex gap-4">
             <a href="#" className="hover:text-[#a3b18a] transition-colors">Track Order</a>
+            <a href="#" className="hover:text-[#a3b18a] transition-colors">Join Our Mission</a>
             <a href="#" className="hover:text-[#a3b18a] transition-colors">Contact Us</a>
           </div>
         </div>
@@ -19,10 +20,30 @@ export function Header() {
       {/* Main Navigation */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo - REPLACE WITH YOUR LOGO */}
-          {/* Example: import logo from "figma:asset/YOUR_LOGO_HASH.png"; */}
-          <div className="flex items-center">
-            <h1 className="text-2xl text-[#3a5a40]">Nivaran Upcyclers</h1>
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <img 
+              src="/images/logo.png" 
+              alt="Nivaran Logo" 
+              className="w-12 h-12 object-contain"
+              onError={(e) => {
+                // Fallback to original design if logo fails to load
+                e.target.style.display = 'none';
+                e.target.parentElement.innerHTML = `
+                  <div class="w-10 h-10 bg-[#3a5a40] rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold text-lg">♻️</span>
+                  </div>
+                  <div>
+                    <h1 class="text-2xl font-bold text-[#3a5a40]">Nivaran</h1>
+                    <p class="text-xs text-[#588157] -mt-1">Upcyclers</p>
+                  </div>
+                `;
+              }}
+            />
+            <div>
+              <h1 className="text-2xl font-bold text-[#3a5a40]">Nivaran</h1>
+              <p className="text-xs text-[#588157] -mt-1">Upcyclers</p>
+            </div>
           </div>
 
           {/* Navigation Links */}

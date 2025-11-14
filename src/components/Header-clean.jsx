@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { ShoppingBag, Phone, Mail, MapPin, Menu, Search, User, ShoppingCart } from 'lucide-react';
+import Login from './Login';
 
 const Header = () => {
+  const [showLogin, setShowLogin] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Smooth scroll function for navigation
@@ -16,12 +18,10 @@ const Header = () => {
     setMobileMenuOpen(false);
   };
 
-  // Navigation function for login page
-  const navigateToLogin = () => {
-    window.history.pushState({}, '', '/login');
-    window.dispatchEvent(new PopStateEvent('popstate'));
-    setMobileMenuOpen(false);
-  };
+  // If login modal is open, render it
+  if (showLogin) {
+    return <Login onClose={() => setShowLogin(false)} />;
+  }
 
   return (
     <header className="bg-white border-b border-[#a3b18a]/30">
@@ -31,7 +31,7 @@ const Header = () => {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4" />
-              <span>+91 91294 55565</span>
+              <span>+91 9129455565</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4" />
@@ -49,31 +49,12 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <img 
-              src="/images/logo.png" 
-              alt="Nivaran Logo" 
-              className="w-16 h-16 object-contain"
-              onError={(e) => {
-                // Fallback to shopping bag icon if logo fails to load
-                e.target.style.display = 'none';
-                e.target.parentElement.innerHTML = `
-                  <div class="inline-flex items-center gap-2">
-                    <svg class="h-8 w-8 text-[#3a5a40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                    </svg>
-                    <h1 class="text-2xl font-bold text-[#3a5a40]">Nivaran</h1>
-                  </div>
-                `;
-              }}
-            />
-            <div>
-              <h1 className="text-2xl font-bold text-[#3a5a40]">Nivaran</h1>
-              <p className="text-xs text-[#588157] -mt-1">Upcyclers</p>
-            </div>
+          <div className="flex items-center gap-2">
+            <ShoppingBag className="h-8 w-8 text-[#3a5a40]" />
+            <h1 className="text-2xl font-bold text-[#3a5a40]">Nivarn</h1>
           </div>
 
-          {/* Navigation Menu */}
+          {/* Desktop Navigation Menu */}
           <nav className="hidden md:flex items-center gap-8">
             <button 
               onClick={() => scrollToSection('hero')} 
@@ -141,9 +122,8 @@ const Header = () => {
               <Search className="h-5 w-5 text-[#3a5a40] cursor-pointer hover:text-[#588157] transition-colors" />
             </div>
             <button 
-              onClick={navigateToLogin}
+              onClick={() => setShowLogin(true)}
               className="relative"
-              aria-label="Go to login page"
             >
               <User className="h-5 w-5 text-[#3a5a40] cursor-pointer hover:text-[#588157] transition-colors" />
             </button>
@@ -162,8 +142,8 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-[#a3b18a]/30 py-4">
-            <nav className="flex flex-col gap-4 px-4">
+          <div className="md:hidden bg-white border-t border-[#a3b18a]/30 mt-4 pt-4">
+            <nav className="flex flex-col gap-4">
               <button 
                 onClick={() => scrollToSection('hero')} 
                 className="text-left text-[#3a5a40] hover:text-[#588157] transition-colors font-medium py-2"
@@ -195,7 +175,7 @@ const Header = () => {
                 Contact
               </button>
               <button 
-                onClick={navigateToLogin} 
+                onClick={() => setShowLogin(true)} 
                 className="text-left text-[#588157] hover:text-[#3a5a40] transition-colors font-medium py-2 border-t border-[#a3b18a]/30 mt-2 pt-4"
               >
                 Login / Sign Up

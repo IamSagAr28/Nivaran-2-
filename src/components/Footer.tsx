@@ -1,5 +1,15 @@
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+};
+
 export function Footer() {
   return (
     <footer className="bg-[#344e41] text-white">
@@ -10,19 +20,41 @@ export function Footer() {
           <div className="col-span-2 space-y-4">
             <h3 className="text-2xl text-[#a3b18a]">Nivaran Upcyclers</h3>
             <p className="text-[#dad7cd]">
-              Transforming waste into wonderful products. Join us in our mission to create a sustainable future through innovative upcycling and conscious living.
+              A social impact startup working in pooja waste disposal management and production of upcycled handicrafts. Revolutionizing traditional practices into opportunities for positive environmental impact.
             </p>
             <div className="flex gap-3 pt-4">
-              <a href="#" className="w-10 h-10 bg-[#3a5a40] hover:bg-[#588157] rounded-full flex items-center justify-center transition-colors">
+              <a 
+                href="https://facebook.com/nivaranupcyclers" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-[#3a5a40] hover:bg-[#1877F2] rounded-full flex items-center justify-center transition-colors"
+                aria-label="Follow us on Facebook"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-[#3a5a40] hover:bg-[#588157] rounded-full flex items-center justify-center transition-colors">
+              <a 
+                href="https://instagram.com/nivaranupcyclers" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-[#3a5a40] hover:bg-gradient-to-r hover:from-[#E4405F] hover:to-[#F56040] rounded-full flex items-center justify-center transition-colors"
+                aria-label="Follow us on Instagram"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-[#3a5a40] hover:bg-[#588157] rounded-full flex items-center justify-center transition-colors">
+              <a 
+                href="https://twitter.com/nivaranupcycler" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-[#3a5a40] hover:bg-[#1DA1F2] rounded-full flex items-center justify-center transition-colors"
+                aria-label="Follow us on Twitter"
+              >
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-[#3a5a40] hover:bg-[#588157] rounded-full flex items-center justify-center transition-colors">
+              <a 
+                href="mailto:info@nivaranupcyclers.in" 
+                className="w-10 h-10 bg-[#3a5a40] hover:bg-[#D44638] rounded-full flex items-center justify-center transition-colors"
+                aria-label="Email us"
+              >
                 <Mail className="w-5 h-5" />
               </a>
             </div>
@@ -32,11 +64,11 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-[#a3b18a] mb-4">Shop</h4>
             <div className="space-y-3">
-              <a href="#" className="block text-[#dad7cd] hover:text-white transition-colors">All Products</a>
-              <a href="#" className="block text-[#dad7cd] hover:text-white transition-colors">Bags & Pouches</a>
-              <a href="#" className="block text-[#dad7cd] hover:text-white transition-colors">Notebooks</a>
-              <a href="#" className="block text-[#dad7cd] hover:text-white transition-colors">Home Decor</a>
-              <a href="#" className="block text-[#dad7cd] hover:text-white transition-colors">Gift Sets</a>
+              <button onClick={() => scrollToSection('products')} className="block text-[#dad7cd] hover:text-white transition-colors">All Products</button>
+              <button onClick={() => scrollToSection('products')} className="block text-[#dad7cd] hover:text-white transition-colors">Wall Hangings</button>
+              <button onClick={() => scrollToSection('products')} className="block text-[#dad7cd] hover:text-white transition-colors">Clutches & Pouches</button>
+              <button onClick={() => scrollToSection('products')} className="block text-[#dad7cd] hover:text-white transition-colors">Home Textiles</button>
+              <button onClick={() => scrollToSection('products')} className="block text-[#dad7cd] hover:text-white transition-colors">Festival Items</button>
             </div>
           </div>
 
@@ -44,11 +76,11 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-[#a3b18a] mb-4">About</h4>
             <div className="space-y-3">
-              <a href="#" className="block text-[#dad7cd] hover:text-white transition-colors">Our Story</a>
-              <a href="#" className="block text-[#dad7cd] hover:text-white transition-colors">Mission</a>
-              <a href="#" className="block text-[#dad7cd] hover:text-white transition-colors">Workshops</a>
-              <a href="#" className="block text-[#dad7cd] hover:text-white transition-colors">Sustainability</a>
-              <a href="#" className="block text-[#dad7cd] hover:text-white transition-colors">Blog</a>
+              <button onClick={() => scrollToSection('about')} className="block text-[#dad7cd] hover:text-white transition-colors">Our Story</button>
+              <button onClick={() => scrollToSection('about')} className="block text-[#dad7cd] hover:text-white transition-colors">Mission</button>
+              <button onClick={() => scrollToSection('about')} className="block text-[#dad7cd] hover:text-white transition-colors">Workshops</button>
+              <button onClick={() => scrollToSection('about')} className="block text-[#dad7cd] hover:text-white transition-colors">Sustainability</button>
+              <button onClick={() => scrollToSection('about')} className="block text-[#dad7cd] hover:text-white transition-colors">Blog</button>
             </div>
           </div>
 
@@ -56,17 +88,17 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-[#a3b18a] mb-4">Contact</h4>
             <div className="space-y-3">
-              <a href="#" className="flex items-center gap-2 text-[#dad7cd] hover:text-white transition-colors">
+              <a href="mailto:info@nivaranupcyclers.in" className="flex items-center gap-2 text-[#dad7cd] hover:text-white transition-colors">
                 <Mail className="w-4 h-4" />
-                info@nivaran.in
+                info@nivaranupcyclers.in
               </a>
-              <a href="#" className="flex items-center gap-2 text-[#dad7cd] hover:text-white transition-colors">
+              <a href="tel:+919129455565" className="flex items-center gap-2 text-[#dad7cd] hover:text-white transition-colors">
                 <Phone className="w-4 h-4" />
-                +91 12345 67890
+                +91 9129455565
               </a>
               <div className="flex items-start gap-2 text-[#dad7cd]">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>Bangalore, Karnataka, India</span>
+                <span>117/Q/39 Radha Krishna Housing Society, Sharda Nagar, Kanpur 208025</span>
               </div>
             </div>
           </div>

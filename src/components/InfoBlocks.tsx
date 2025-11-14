@@ -13,9 +13,9 @@ export function InfoBlocks() {
               </div>
             </div>
             <div className="space-y-3 flex-1">
-              <h3 className="text-xl text-[#344e41]">Sustainable Materials</h3>
+              <h3 className="text-xl text-[#344e41]">Pooja Waste Upcycling</h3>
               <p className="text-[#3a5a40]">
-                Every product is crafted from upcycled and recycled materials, reducing waste and promoting environmental consciousness. We transform discarded materials into beautiful, functional items.
+                We specialize in upcycling pooja waste, repurposing discarded religious materials into high-quality, eco-friendly products including natural dyes, organic fertilizers, and artisanal crafts.
               </p>
               <button className="px-6 py-2 bg-[#588157] text-white text-sm hover:bg-[#3a5a40] rounded-lg transition-colors">
                 Learn More
@@ -31,9 +31,9 @@ export function InfoBlocks() {
               </div>
             </div>
             <div className="space-y-3 flex-1">
-              <h3 className="text-xl text-[#344e41]">Handcrafted with Love</h3>
+              <h3 className="text-xl text-[#344e41]">Cultural Preservation</h3>
               <p className="text-[#3a5a40]">
-                Each piece is meticulously handcrafted by skilled artisans who pour their heart into every creation. Supporting local craftsmanship and preserving traditional techniques.
+                Transforming traditional practices into opportunities for positive social and environmental impact. We collaborate with temples, religious organizations, and local communities for culturally sensitive solutions.
               </p>
               <button className="px-6 py-2 bg-[#588157] text-white text-sm hover:bg-[#3a5a40] rounded-lg transition-colors">
                 Our Story
@@ -51,10 +51,10 @@ export function InfoBlocks() {
             <div className="space-y-3 flex-1">
               <h3 className="text-xl text-[#344e41]">Community Empowerment</h3>
               <p className="text-[#3a5a40]">
-                We work with local communities, providing fair employment and skill development opportunities. Together, we're building a sustainable future.
+                We work with local communities, providing fair employment and skill development opportunities. Together, we're building a sustainable future through collaborative engagement.
               </p>
               <button className="px-6 py-2 bg-[#588157] text-white text-sm hover:bg-[#3a5a40] rounded-lg transition-colors">
-                Join Us
+                Join As Volunteer
               </button>
             </div>
           </div>
@@ -67,9 +67,9 @@ export function InfoBlocks() {
               </div>
             </div>
             <div className="space-y-3 flex-1">
-              <h3 className="text-xl text-[#344e41]">Quality Assured</h3>
+              <h3 className="text-xl text-[#344e41]">Circular Economy</h3>
               <p className="text-[#3a5a40]">
-                Despite being eco-friendly, we never compromise on quality. Each product undergoes strict quality checks to ensure durability and functionality.
+                Creating a circular economy where waste is reimagined as a valuable resource. Our research-based approach ensures effective and culturally sensitive upcycling techniques.
               </p>
               <button className="px-6 py-2 bg-[#588157] text-white text-sm hover:bg-[#3a5a40] rounded-lg transition-colors">
                 See Reviews
