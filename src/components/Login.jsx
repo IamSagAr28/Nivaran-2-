@@ -1,203 +1,108 @@
 import React, { useState } from 'react';
-import { Mail, Lock, Eye, EyeOff, User, ArrowLeft, ShoppingBag } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 
 const Login = ({ onClose }) => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    name: '',
-    confirmPassword: ''
-  });
-
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
-  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#dad7cd] via-[#a3b18a] to-[#588157] flex items-center justify-center p-4">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20 bg-gradient-to-br from-[#344e41]/10 via-transparent to-[#588157]/10"></div>
-      
-      {/* Login Card */}
-      <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-[#3a5a40] to-[#588157] px-8 py-6 text-white">
-          <div className="flex items-center justify-between mb-4">
-            <button 
-              onClick={onClose}
-              className="p-2 hover:bg-white/20 rounded-full transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            <div className="flex items-center gap-2">
-              <ShoppingBag className="w-6 h-6" />
-              <span className="text-lg font-bold">Nivaran</span>
+    <div className="fixed inset-0 bg-black/20 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-2xl w-full max-w-[440px] shadow-2xl">
+        
+        {/* Green Header */}
+        <div className="bg-[#5d7c5f] text-white text-center px-8 py-10 relative rounded-t-2xl">
+          <button onClick={onClose} className="absolute top-6 left-6 text-white/90 hover:text-white">
+            <ArrowLeft className="w-5 h-5" />
+          </button>
+          
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+              <div className="w-6 h-6 bg-[#5d7c5f] rounded"></div>
             </div>
-            <div></div>
+            <span className="text-lg font-medium">Nivaran</span>
           </div>
-          <div className="text-center">
-            <h1 className="text-2xl font-bold mb-2">
-              {isLogin ? 'Welcome Back!' : 'Join Nivaran'}
-            </h1>
-            <p className="text-[#dad7cd] text-sm">
-              {isLogin 
-                ? 'Sign in to continue your sustainable journey' 
-                : 'Start your eco-friendly shopping experience'
-              }
-            </p>
-          </div>
+          
+          <h2 className="text-2xl font-semibold mb-2">Welcome Back!</h2>
+          <p className="text-sm text-white/80">Sign in to continue your sustainable journey</p>
         </div>
 
         {/* Form */}
-        <div className="px-8 py-6">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name field for registration */}
-            {!isLogin && (
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-[#3a5a40] flex items-center gap-2">
-                  <User className="w-4 h-4" />
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-[#a3b18a]/30 rounded-lg focus:outline-none focus:border-[#588157] focus:ring-2 focus:ring-[#588157]/20 transition-all"
-                  placeholder="Enter your full name"
-                  required={!isLogin}
-                />
-              </div>
-            )}
-
-            {/* Email field */}
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-[#3a5a40] flex items-center gap-2">
+        <div className="p-8">
+          <form className="space-y-5">
+            <div>
+              <label className="flex items-center gap-2 text-sm text-gray-600 mb-2">
                 <Mail className="w-4 h-4" />
                 Email Address
               </label>
               <input
                 type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-[#a3b18a]/30 rounded-lg focus:outline-none focus:border-[#588157] focus:ring-2 focus:ring-[#588157]/20 transition-all"
                 placeholder="Enter your email"
-                required
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5d7c5f]/20 focus:border-[#5d7c5f]"
               />
             </div>
 
-            {/* Password field */}
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-[#3a5a40] flex items-center gap-2">
+            <div>
+              <label className="flex items-center gap-2 text-sm text-gray-600 mb-2">
                 <Lock className="w-4 h-4" />
                 Password
               </label>
               <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
-                  name="password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 pr-12 border border-[#a3b18a]/30 rounded-lg focus:outline-none focus:border-[#588157] focus:ring-2 focus:ring-[#588157]/20 transition-all"
                   placeholder="Enter your password"
-                  required
+                  value={formData.password}
+                  onChange={(e) => setFormData({...formData, password: e.target.value})}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5d7c5f]/20 focus:border-[#5d7c5f]"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#a3b18a] hover:text-[#588157] transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
             </div>
 
-            {/* Confirm Password field for registration */}
-            {!isLogin && (
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-[#3a5a40] flex items-center gap-2">
-                  <Lock className="w-4 h-4" />
-                  Confirm Password
-                </label>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  value={formData.confirmPassword}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-[#a3b18a]/30 rounded-lg focus:outline-none focus:border-[#588157] focus:ring-2 focus:ring-[#588157]/20 transition-all"
-                  placeholder="Confirm your password"
-                  required={!isLogin}
-                />
-              </div>
-            )}
+            <div className="text-left">
+              <button type="button" className="text-sm text-gray-500">Forgot Password?</button>
+            </div>
 
-            {/* Forgot Password */}
-            {isLogin && (
-              <div className="text-right">
-                <a href="#" className="text-sm text-[#588157] hover:text-[#3a5a40] transition-colors">
-                  Forgot Password?
-                </a>
-              </div>
-            )}
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-[#3a5a40] to-[#588157] text-white py-3 rounded-lg font-medium hover:from-[#588157] hover:to-[#a3b18a] transform hover:scale-[1.02] transition-all duration-200 shadow-lg"
-            >
-              {isLogin ? 'Sign In' : 'Create Account'}
+            <button type="submit" className="w-full bg-[#5d7c5f] text-white py-3 rounded-lg font-medium hover:bg-[#4d6c4f]">
+              Sign In
             </button>
-          </form>
 
-          {/* Divider */}
-          <div className="my-6 flex items-center gap-4">
-            <div className="flex-1 h-px bg-[#a3b18a]/30"></div>
-            <span className="text-sm text-[#a3b18a]">or</span>
-            <div className="flex-1 h-px bg-[#a3b18a]/30"></div>
-          </div>
+            <div className="relative my-6">
+              <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-200"></div></div>
+              <div className="relative flex justify-center text-sm"><span className="px-2 bg-white text-gray-500">or</span></div>
+            </div>
 
-          {/* Social Login */}
-          <div className="space-y-3">
-            <button className="w-full flex items-center justify-center gap-3 border border-[#a3b18a]/30 py-3 rounded-lg hover:bg-[#dad7cd]/20 transition-colors">
-              <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" className="w-5 h-5" />
-              <span className="text-[#3a5a40]">Continue with Google</span>
+            <button type="button" className="w-full flex items-center justify-center gap-3 py-3 border border-gray-300 rounded-lg hover:bg-gray-50">
+              <svg className="w-5 h-5" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+              <span className="text-sm font-medium text-gray-700">Continue with Google</span>
             </button>
-          </div>
 
-          {/* Toggle Login/Register */}
-          <div className="mt-6 text-center">
-            <p className="text-[#a3b18a] text-sm">
-              {isLogin ? "Don't have an account?" : "Already have an account?"}
-              <button
-                onClick={() => setIsLogin(!isLogin)}
-                className="ml-1 text-[#588157] font-medium hover:text-[#3a5a40] transition-colors"
-              >
-                {isLogin ? 'Sign Up' : 'Sign In'}
-              </button>
+            <p className="text-center text-sm text-gray-500 mt-4">
+              Don't have an account? <button type="button" className="text-[#5d7c5f] font-medium hover:underline">Sign Up</button>
             </p>
-          </div>
-        </div>
 
-        {/* Footer */}
-        <div className="bg-[#dad7cd]/30 px-8 py-4 text-center">
-          <p className="text-xs text-[#344e41]">
-            By continuing, you agree to our{' '}
-            <a href="#" className="text-[#588157] hover:underline">Terms of Service</a>
-            {' '}and{' '}
-            <a href="#" className="text-[#588157] hover:underline">Privacy Policy</a>
-          </p>
+            <div className="text-center pt-4 mt-4 border-t border-gray-100">
+              <p className="text-xs text-gray-400 mb-3">
+                By continuing, you agree to our <a href="#" className="text-[#5d7c5f]">Terms of Service</a> and <a href="#" className="text-[#5d7c5f]">Privacy Policy</a>
+              </p>
+              <button type="button" onClick={onClose} className="text-sm text-[#5d7c5f] flex items-center gap-1 mx-auto">
+                <ArrowLeft className="w-4 h-4" />
+                Back to Nivaran Homepage
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

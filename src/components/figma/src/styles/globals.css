@@ -3,49 +3,42 @@
 :root {
   --font-size: 16px;
   --background: #ffffff;
-  --foreground: #344e41;
+  --foreground: oklch(0.145 0 0);
   --card: #ffffff;
-  --card-foreground: #344e41;
-  --popover: #ffffff;
-  --popover-foreground: #344e41;
-  --primary: #3a5a40;
-  --primary-foreground: #ffffff;
-  --secondary: #a3b18a;
-  --secondary-foreground: #344e41;
-  --muted: #dad7cd;
-  --muted-foreground: #588157;
-  --accent: #588157;
-  --accent-foreground: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
-  --border: rgba(88, 129, 87, 0.2);
+  --border: rgba(0, 0, 0, 0.1);
   --input: transparent;
-  --input-background: #dad7cd;
-  --switch-background: #a3b18a;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #588157;
-  --chart-1: #588157;
-  --chart-2: #3a5a40;
-  --chart-3: #a3b18a;
-  --chart-4: #dad7cd;
-  --chart-5: #344e41;
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
-  --sidebar: #344e41;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #588157;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #3a5a40;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #588157;
-  --sidebar-ring: #588157;
-  
-  /* Custom brand colors */
-  --timberwolf: #dad7cd;
-  --sage: #a3b18a;
-  --fern-green: #588157;
-  --hunter-green: #3a5a40;
-  --brunswick-green: #344e41;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 }
 
 .dark {
@@ -193,32 +186,4 @@
 
 html {
   font-size: var(--font-size);
-}
-
-/* Animated blob for login page */
-@keyframes blob {
-  0% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-  100% {
-    transform: translate(0px, 0px) scale(1);
-  }
-}
-
-.animate-blob {
-  animation: blob 7s infinite;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
 }

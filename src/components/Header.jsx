@@ -18,8 +18,7 @@ const Header = () => {
 
   // Navigation function for login page
   const navigateToLogin = () => {
-    window.history.pushState({}, '', '/login');
-    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.location.href = '/login.html';
     setMobileMenuOpen(false);
   };
 
