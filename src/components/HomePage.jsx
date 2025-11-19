@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header.jsx';
+import { Header } from './Header.tsx';
 import { HeroSlideshow } from "./HeroSlideshow.jsx";
 import { FeatureIcons } from "./FeatureIcons";
 import { CategoryShowcase } from "./CategoryShowcase";
@@ -16,7 +16,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header with Navigation */}
-      <Header />
+      <Header showCategories={true} />
 
       {/* Hero Slideshow */}
       <section id="hero">
