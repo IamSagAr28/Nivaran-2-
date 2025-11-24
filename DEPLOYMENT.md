@@ -1,5 +1,7 @@
 # Nivarn - Eco-Friendly Products
 
+*Last updated: November 24, 2025*
+
 This is a modern, eco-friendly e-commerce website built with React, TypeScript, and Vite.
 
 ## 🌿 Features
