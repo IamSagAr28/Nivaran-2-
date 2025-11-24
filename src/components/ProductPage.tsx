@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+// Resolved merge conflicts
 import { Header } from './Header.tsx';
 import { Footer } from './Footer';
 import { useRouter } from '../utils/Router';
@@ -201,7 +202,7 @@ export default function ProductPage() {
                         </div>
 
                         <div className="product-price">
-                            <span className="price-current">{formatPrice(selectedVariant?.price.amount)}</span>
+                            <span className="price-current">{formatPrice(selectedVariant?.price.amount || '0')}</span>
                             {selectedVariant?.compareAtPrice && (
                                 <>
                                     <span className="price-original">{formatPrice(selectedVariant.compareAtPrice.amount)}</span>
@@ -398,7 +399,7 @@ export default function ProductPage() {
                     <img src={images[0]} alt="Product" className="sticky-product-img" />
                     <div className="sticky-product-details">
                         <h4>{product.title}</h4>
-                        <p>{formatPrice(selectedVariant?.price.amount)}</p>
+                        <p>{formatPrice(selectedVariant?.price.amount || '0')}</p>
                     </div>
                 </div>
                 <button 
@@ -430,7 +431,7 @@ export default function ProductPage() {
                                     <input type="text" value={quantity} readOnly style={{width: '30px', height: '24px', fontSize: '13px'}} />
                                     <button className="cart-qty-btn" onClick={() => handleQuantityChange(1)}>+</button>
                                 </div>
-                                <span className="cart-item-price">{formatPrice(selectedVariant?.price.amount)}</span>
+                                <span className="cart-item-price">{formatPrice(selectedVariant?.price.amount || '0')}</span>
                             </div>
                         </div>
                     </div>
