@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-// Resolved merge conflicts
 import { Header } from './Header.tsx';
 import { Footer } from './Footer';
 import { useRouter } from '../utils/Router';
