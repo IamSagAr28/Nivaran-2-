@@ -43,11 +43,26 @@ git push origin master
 
 ## ⚠️ Database Setup (PostgreSQL)
 
-This project is configured to use **PostgreSQL** in production (Vercel) and **SQLite** locally.
+Since Vercel Postgres might not be available in all regions or plans, we recommend using **Neon** (free and easy).
 
-1.  **Create a Database**: In your Vercel dashboard, go to the **Storage** tab and create a **Vercel Postgres** database.
-2.  **Connect**: Click "Connect Project" to link it to your deployment. This will automatically set the `POSTGRES_URL` (or `DATABASE_URL`) environment variable.
-3.  **Verify**: The application will automatically detect `DATABASE_URL` and create the necessary tables (`users`, `subscriptions`, etc.) on the first run.
+### Option A: Use Neon (Recommended)
+1.  Go to [Neon.tech](https://neon.tech) and Sign Up (Free).
+2.  Create a new **Project**.
+3.  It will show you a **Connection String** (e.g., `postgres://user:pass@...`).
+4.  Copy this string.
+5.  Go to your **Vercel Project Settings** > **Environment Variables**.
+6.  Add a new variable:
+    *   **Name**: `DATABASE_URL`
+    *   **Value**: (Paste the Neon connection string)
+7.  **Redeploy** your project in Vercel.
+
+### Option B: Use Supabase
+1.  Go to [Supabase.com](https://supabase.com) and create a project.
+2.  Go to Project Settings > Database > Connection String > Node.js.
+3.  Copy the connection string.
+4.  Add it as `DATABASE_URL` in Vercel Environment Variables.
+
+The application will automatically detect `DATABASE_URL` and create the necessary tables (`users`, `subscriptions`, etc.) on the first run.
 
 ## 4. Update Google Cloud Console
 
