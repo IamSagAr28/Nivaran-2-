@@ -55,13 +55,13 @@
             "sqlite3": "^5.1.7",
             "tailwind-merge": "*",
             "vaul": "^1.1.2",
-            "vite": "^7.2.4"
+            "vite": "^7.2.4",
+            "@vitejs/plugin-react-swc": "^3.10.2"
       },
       "devDependencies": {
             "@types/node": "^20.10.0",
             "@types/react": "^19.2.6",
-            "@types/react-dom": "^19.2.3",
-            "@vitejs/plugin-react-swc": "^3.10.2"
+            "@types/react-dom": "^19.2.3"
       },
       "scripts": {
             "dev": "vite --force",
