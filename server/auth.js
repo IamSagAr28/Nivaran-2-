@@ -191,9 +191,10 @@ router.get('/google', (req, res) => {
 if (process.env.NODE_ENV !== 'production' || process.env.DEBUG === 'true') {
   router.get('/debug', (req, res) => {
     return res.json({
-      GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID || null,
-      GOOGLE_REDIRECT_URI: process.env.GOOGLE_REDIRECT_URI || null,
-      CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:5173',
+      google_client_id: process.env.GOOGLE_CLIENT_ID || null,
+      google_redirect_uri: process.env.GOOGLE_REDIRECT_URI || null,
+      client_url: process.env.CLIENT_URL || 'http://localhost:5173',
+      node_env: process.env.NODE_ENV || 'development',
     });
   });
 }
